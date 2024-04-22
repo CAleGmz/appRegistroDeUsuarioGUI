@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>420</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Registro de usuario</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(61, 61, 61);
+font: 13pt &quot;Segoe UI&quot;;</string>
+  </property>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>49</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonSalir">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>10</y>
+     <width>31</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
+   <property name="toolTip">
+    <string>Cerrar</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 0, 0);
+color: rgb(0, 0, 0);</string>
+   </property>
+   <property name="text">
+    <string>X</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonRegistrarse">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>460</y>
+     <width>91</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(56, 56, 56);</string>
+   </property>
+   <property name="text">
+    <string>Registrarse</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>100</y>
+     <width>399</width>
+     <height>351</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="verticalSpacing">
+     <number>0</number>
+    </property>
+    <item row="1" column="0" colspan="3">
+     <widget class="QLineEdit" name="lineEditNombreDeUsuario">
+      <property name="styleSheet">
+       <string notr="true">color: white;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="0" colspan="3">
+     <layout class="QVBoxLayout" name="verticalLayoutErrorFechaNacimiento">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="labelErrorDia">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 50, 50);
+font: 10pt &quot;Segoe UI&quot;;</string>
+        </property>
+        <property name="text">
+         <string>*El dia es invalido</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="labelErrorYear">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 50, 50);
+font: 10pt &quot;Segoe UI&quot;;</string>
+        </property>
+        <property name="text">
+         <string>*El año es invalido</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="labelErrorEdadNoValida">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 50, 50);
+font: 10pt &quot;Segoe UI&quot;;</string>
+        </property>
+        <property name="text">
+         <string>*La edad tiene que ser mayor de edad</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label">
+      <property name="styleSheet">
+       <string notr="true">font: 700 14pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>Correo:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0" colspan="3">
+     <widget class="QLineEdit" name="lineEditCorreo">
+      <property name="styleSheet">
+       <string notr="true">color: white;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="1">
+     <widget class="QComboBox" name="comboBoxMes">
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>Enero</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Feberero</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Marzo</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Abril</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Mayo</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Junio</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Julio</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Agosto</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Septiembre</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Octubre</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Noviembre</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Diciembre</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="0" column="0" colspan="2">
+     <widget class="QLabel" name="label_3">
+      <property name="styleSheet">
+       <string notr="true">font: 700 14pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>Nombre de usuario:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="0">
+     <widget class="QLineEdit" name="lineEditDia">
+      <property name="styleSheet">
+       <string notr="true">color: white;</string>
+      </property>
+      <property name="placeholderText">
+       <string>Dia</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0" colspan="3">
+     <layout class="QVBoxLayout" name="verticalLayoutErrorNombreUsuario">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="labelErrorNombreDeUsuario">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 50, 50);
+font: 10pt &quot;Segoe UI&quot;;</string>
+        </property>
+        <property name="text">
+         <string>*Error el usario debe ser menor a 13 caracteres</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="7" column="2">
+     <widget class="QLineEdit" name="lineEditYear">
+      <property name="styleSheet">
+       <string notr="true">color: white;</string>
+      </property>
+      <property name="placeholderText">
+       <string>Año</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0" colspan="2">
+     <widget class="QLabel" name="label_4">
+      <property name="styleSheet">
+       <string notr="true">font: 700 14pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>Fecha de nacimiento:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0" colspan="3">
+     <layout class="QVBoxLayout" name="verticalLayoutErrorCorreo">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="labelErrorCorreo">
+        <property name="font">
+         <font>
+          <family>Segoe UI</family>
+          <pointsize>10</pointsize>
+          <italic>false</italic>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 50, 50);
+font: 10pt &quot;Segoe UI&quot;;</string>
+        </property>
+        <property name="text">
+         <string>*Error el correo no cumple con los requisitos</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="labelCorreo">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+font: 10pt &quot;Segoe UI&quot;;</string>
+        </property>
+        <property name="text">
+         <string>El correo debe contener </string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>50</y>
+     <width>298</width>
+     <height>36</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QLabel" name="label_6">
+      <property name="styleSheet">
+       <string notr="true">font: 700 14pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>Tipo de correo:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QComboBox" name="comboBoxCorreo">
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>Correo 1</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Correo 2</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Correo 3</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Correo Personal</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>lineEditNombreDeUsuario</tabstop>
+  <tabstop>lineEditCorreo</tabstop>
+  <tabstop>lineEditDia</tabstop>
+  <tabstop>comboBoxMes</tabstop>
+  <tabstop>lineEditYear</tabstop>
+  <tabstop>pushButtonRegistrarse</tabstop>
+  <tabstop>comboBoxCorreo</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
