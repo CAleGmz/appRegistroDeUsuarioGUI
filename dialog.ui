@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>420</width>
-    <height>500</height>
+    <width>470</width>
+    <height>665</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -34,7 +34,7 @@ font: 13pt &quot;Segoe UI&quot;;</string>
   <widget class="QPushButton" name="pushButtonSalir">
    <property name="geometry">
     <rect>
-     <x>380</x>
+     <x>430</x>
      <y>10</y>
      <width>31</width>
      <height>24</height>
@@ -60,14 +60,17 @@ color: rgb(0, 0, 0);</string>
    </property>
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>460</y>
+     <x>180</x>
+     <y>620</y>
      <width>91</width>
      <height>30</height>
     </rect>
    </property>
    <property name="focusPolicy">
     <enum>Qt::NoFocus</enum>
+   </property>
+   <property name="toolTip">
+    <string>&quot;Debes completar el registro&quot;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">color: rgb(255, 255, 255);
@@ -81,9 +84,9 @@ background-color: rgb(56, 56, 56);</string>
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>100</y>
-     <width>399</width>
-     <height>351</height>
+     <y>50</y>
+     <width>449</width>
+     <height>568</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
@@ -132,6 +135,17 @@ font: 10pt &quot;Segoe UI&quot;;</string>
         </property>
         <property name="text">
          <string>*La edad tiene que ser mayor de edad</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="labelFecha">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+font: 10pt &quot;Segoe UI&quot;;</string>
+        </property>
+        <property name="text">
+         <string>La fecha es valida</string>
         </property>
        </widget>
       </item>
@@ -259,6 +273,76 @@ font: 10pt &quot;Segoe UI&quot;;</string>
         </property>
        </widget>
       </item>
+      <item>
+       <widget class="QLabel" name="labelUsuario">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+font: 10pt &quot;Segoe UI&quot;;</string>
+        </property>
+        <property name="text">
+         <string>El usuario debe 
+-Mayor o igual a 3 caracteres 
+-Menor o igual a 13 caracteres 
+-Letras, numeros y guiones bajos (_)</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_5">
+        <property name="styleSheet">
+         <string notr="true">font: 700 14pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string>Contraseña:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QLineEdit" name="lineEditContrasena">
+          <property name="styleSheet">
+           <string notr="true">color white;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButtonMostrarContrasena">
+          <property name="text">
+           <string>ON</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QLabel" name="labelErrorContrasena">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 50, 50);
+font: 10pt &quot;Segoe UI&quot;</string>
+        </property>
+        <property name="text">
+         <string>*Error la contraseña es incorrecta</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="labelContrasena">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+font: 10pt &quot;Segoe UI&quot;;</string>
+        </property>
+        <property name="text">
+         <string>La contraseña debe contener como minimo
+-Mayor o igual a 8 caracteres 
+-Menor o igual a 13 caracteres 
+-1 Mayuscula y minuscula 
+-1 Caracter especial (-_@*)
+-1 Numero</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </item>
     <item row="7" column="2">
@@ -324,8 +408,8 @@ font: 10pt &quot;Segoe UI&quot;;</string>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>50</y>
+     <x>80</x>
+     <y>10</y>
      <width>298</width>
      <height>36</height>
     </rect>
@@ -384,8 +468,6 @@ color: rgb(255, 255, 255);</string>
   <tabstop>lineEditDia</tabstop>
   <tabstop>comboBoxMes</tabstop>
   <tabstop>lineEditYear</tabstop>
-  <tabstop>pushButtonRegistrarse</tabstop>
-  <tabstop>comboBoxCorreo</tabstop>
  </tabstops>
  <resources/>
  <connections/>

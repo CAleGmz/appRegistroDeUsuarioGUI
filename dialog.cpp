@@ -27,18 +27,25 @@ void Dialog::inicio()
 
     ui->labelErrorNombreDeUsuario->setVisible(false);
 
+    ui->labelContrasena->setVisible(true);
+    ui->labelErrorContrasena->setVisible(false);
+    ui->lineEditContrasena->setEchoMode(QLineEdit::Password);
+
     ui->labelCorreo->setVisible(true);
     ui->labelErrorCorreo->setVisible(false);
 
     ui->labelErrorDia->setVisible(false);
     ui->labelErrorYear->setVisible(false);
     ui->labelErrorEdadNoValida->setVisible(false);
+    ui->labelFecha->setVisible(false);
+    ui->labelFecha->setStyleSheet("color: rgb(0, 255, 0);\nfont: 10pt;");
 
     ui->verticalLayoutErrorNombreUsuario->addStretch();
     ui->verticalLayoutErrorCorreo->addStretch();
     ui->verticalLayoutErrorFechaNacimiento->addStretch();
 
     ui->lineEditNombreDeUsuario->setStyleSheet("border: 2px solid grey");
+    ui->lineEditContrasena->setStyleSheet("border: 2px solid grey");
     ui->lineEditCorreo->setStyleSheet("border: 2px solid grey");
     ui->lineEditDia->setStyleSheet("border: 2px solid grey");
     ui->lineEditYear->setStyleSheet("border: 2px solid grey");
@@ -55,11 +62,32 @@ bool Dialog::revisarUsuario()
     if(match.hasMatch()){
         ui->lineEditNombreDeUsuario->setStyleSheet("border: 2px solid grey");
         ui->labelErrorNombreDeUsuario->setVisible(false);
+        ui->labelUsuario->setStyleSheet("color: rgb(0, 255, 0);\nfont: 10pt;");
         return true;
     }
     else{
         ui->lineEditNombreDeUsuario->setStyleSheet("border: 4px solid red");
         ui->labelErrorNombreDeUsuario->setVisible(true);
+        ui->labelUsuario->setStyleSheet("color: rgb(255, 255, 255);\nfont: 10pt;");
+        return false;
+    }
+}
+
+bool Dialog::revisarContrasena()
+{
+    QRegularExpression patron("^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[!@#$%^&*])[A-Za-z\\d!@#$%^&*]{8,13}$");
+    QRegularExpressionMatch match = patron.match(ui->lineEditContrasena->text());
+
+    if(match.hasMatch()){
+        ui->lineEditContrasena->setStyleSheet("border: 2px solid grey");
+        ui->labelErrorContrasena->setVisible(false);
+        ui->labelContrasena->setStyleSheet("color: rgb(0, 255, 0);\nfont: 10pt;");
+        return true;
+    }
+    else{
+        ui->lineEditContrasena->setStyleSheet("border: 4px solid red");
+        ui->labelErrorContrasena->setVisible(true);
+        ui->labelContrasena->setStyleSheet("color: rgb(255, 255, 255);\nfont: 10pt;");
         return false;
     }
 }
@@ -87,11 +115,13 @@ bool Dialog::revisarCorreo()
     if(match.hasMatch()){
         ui->lineEditCorreo->setStyleSheet("border: 2px solid grey");
         ui->labelErrorCorreo->setVisible(false);
+        ui->labelCorreo->setStyleSheet("color: rgb(0, 255, 0);\nfont: 10pt;");
         return true;
     }
     else{
         ui->lineEditCorreo->setStyleSheet("border: 4px solid red");
         ui->labelErrorCorreo->setVisible(true);
+        ui->labelCorreo->setStyleSheet("color: rgb(255, 255, 255);\nfont: 10pt;");
         return false;
     }
 }
@@ -140,26 +170,30 @@ bool Dialog::revisarYear()
     if(match.hasMatch()){
         ui->lineEditYear->setStyleSheet("border: 2px solid grey");
         ui->labelErrorYear->setVisible(false);
+        ui->labelFecha->setVisible(true);
         return true;
     }
     else{
         ui->lineEditYear->setStyleSheet("border: 4px solid red");
         ui->labelErrorYear->setVisible(true);
+        ui->labelFecha->setVisible(false);
         return false;
     }
 }
 
 void Dialog::esValidoElRegistro()
 {
-    if(usuario && revisarUsuario() && correo && revisarCorreo() &&
+    if(usuario && revisarUsuario() && contrasena && revisarContrasena() && correo && revisarCorreo() &&
        dia && revisarDia() &&
         year && revisarYear()){
         ui->pushButtonRegistrarse->setEnabled(true);
         ui->pushButtonRegistrarse->setStyleSheet("color: rgb(0, 0, 0);background-color: rgb(125, 255, 150);");
+        ui->pushButtonRegistrarse->setToolTip("Oprime para registar");
     }
     else{
         ui->pushButtonRegistrarse->setEnabled(false);
         ui->pushButtonRegistrarse->setStyleSheet("color: rgb(255, 255, 255);background-color: rgb(56, 56, 56);");
+        ui->pushButtonRegistrarse->setToolTip("Debes completar el registro");
     }
 }
 
@@ -170,6 +204,11 @@ void Dialog::on_lineEditNombreDeUsuario_editingFinished()
     esValidoElRegistro();
 }
 
+void Dialog::on_lineEditContrasena_editingFinished()
+{
+    contrasena = true;
+    revisarContrasena();
+}
 
 void Dialog::on_lineEditCorreo_editingFinished()
 {
@@ -200,6 +239,14 @@ void Dialog::on_lineEditNombreDeUsuario_textChanged(const QString &)
 {
     if(usuario){
         revisarUsuario();
+        esValidoElRegistro();
+    }
+}
+
+void Dialog::on_lineEditContrasena_textChanged(const QString &)
+{
+    if(contrasena){
+        revisarContrasena();
         esValidoElRegistro();
     }
 }
@@ -256,5 +303,19 @@ void Dialog::on_pushButtonRegistrarse_clicked()
     QMessageBox *messageBox = new QMessageBox(QMessageBox::Information,"Usuario creado con exito", "El Usuario fue creado con exito\n puede cerrar la app o crear otro",QMessageBox::Ok,this);
 
     messageBox->show();
+}
+
+void Dialog::on_pushButtonMostrarContrasena_clicked(bool)
+{
+    if(band){
+        ui->lineEditContrasena->setEchoMode(QLineEdit::Password);
+        ui->pushButtonMostrarContrasena->setText("ON");
+        band = false;
+    }
+    else{
+        ui->lineEditContrasena->setEchoMode(QLineEdit::Normal);
+        ui->pushButtonMostrarContrasena->setText("OFF");
+        band = true;
+    }
 }
 

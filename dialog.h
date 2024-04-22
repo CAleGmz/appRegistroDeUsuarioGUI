@@ -39,18 +39,25 @@ private slots:
 
     void on_pushButtonRegistrarse_clicked();
 
+    void on_lineEditContrasena_editingFinished();
+
+    void on_lineEditContrasena_textChanged(const QString &arg1);
+
+    void on_pushButtonMostrarContrasena_clicked(bool checked);
+
 private:
     Ui::Dialog *ui;
 
     void inicio();
 
     bool revisarUsuario();
+    bool revisarContrasena();
     bool revisarCorreo();
     bool revisarDia();
     bool revisarYear();
 
     void esValidoElRegistro();
 
-    bool usuario = false, correo = false, dia = false, year = false;
+    bool usuario = false,contrasena = false, correo = false, dia = false, year = false, band = false;
 };
 #endif // DIALOG_H
